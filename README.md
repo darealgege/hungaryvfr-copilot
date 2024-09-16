@@ -13,7 +13,7 @@ This project is a web-based counterpart to the HungaryVFR CoPilot Discord bot, s
 
 ## Features
 
-- **AI-Powered Chatbot**: Engage in conversations with an AI assistant knowledgeable in aviation and flight simulation.
+- **AI-Powered Chatbot**: Engage in conversations with an AI assistant.
 - **Multiple Tabs and Sessions**: Manage multiple chat sessions with tabbed navigation.
 - **Customizable AI Profiles**: Load different AI profiles or use custom initial prompts to tailor the assistant's behavior.
 - **Knowledge Base Integration**: Load knowledge base files to provide the assistant with specialized information.
