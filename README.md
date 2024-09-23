@@ -19,6 +19,7 @@ This project is a web-based counterpart to the HungaryVFR CoPilot Discord bot, s
 - **Knowledge Base Integration**: Load knowledge base files to provide the assistant with specialized information.
 - **File Attachments**: Upload text, PDF, or Word documents to include their content in the conversation context.
 - **Speech Recognition and Synthesis**: Use speech-to-text for input and text-to-speech for the assistant's responses.
+- **Image Recognition**: Using OpenAI Vision for image recognition. 
 - **Search Integration**: Optionally enable Bing, Google, and Perplexity searches to enhance responses with real-time information.
 - **Location Awareness**: Optionally share your location to receive localized information like weather updates.
 - **Export / Import**: Export and Import your chat sessions.
@@ -54,11 +55,15 @@ This project is a web-based counterpart to the HungaryVFR CoPilot Discord bot, s
    - OpenAI GPT API Key
      - Purpose: To generate AI responses.
      - Where to get it: [OpenAI API Keys](https://platform.openai.com/account/api-keys)
-     - Where to place it: In the ``get_config.php`` file.
+     - Where to place it: In the ``get_config.php`` and ``process_image.php`` file.
      - Instructions:
      - Open ``get_config.php``. Find the line:
        ```
        $OPENAI_API_KEY = '';
+     - Place your OpenAI API key between the quotes.
+     - Open ``process_image.php``. Find the line:
+       ```
+       $apiKey = '';
      - Place your OpenAI API key between the quotes.
    - Bing Search API Key
      - Purpose: To enable Bing search integration.
@@ -130,6 +135,10 @@ Enable location sharing to allow the assistant to provide localized information 
   - Instructions: Open ``config.php``. Set your OpenAI API key:
     ```
     $OPENAI_API_KEY = 'your-openai-api-key';
+  - File: ``process_image.php``
+  - Instructions: Open ``process_image.php``. Set your OpenAI API key:
+    ```
+    $apiKey = 'your-openai-api-key';
 - Bing Search API Key
   - File: ``bing.php``
   - Instructions: Open ``bing.php``. Set your Bing API key:
