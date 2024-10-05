@@ -17,7 +17,7 @@ This project is a web-based counterpart to the HungaryVFR CoPilot Discord bot, s
 - **Multiple Tabs and Sessions**: Manage multiple chat sessions with tabbed navigation.
 - **Customizable AI Profiles**: Load different AI profiles or use custom initial prompts to tailor the assistant's behavior.
 - **Knowledge Base Integration**: Load knowledge base files to provide the assistant with specialized information.
-- **File Attachments**: Upload text, EPUB, PDF, or Word documents to include their content in the conversation context.
+- **File Attachments**: Upload plain-text, EPUB, PDF, or Word documents to include their content in the conversation context.
 - **Speech Recognition and Synthesis**: Use speech-to-text for input and text-to-speech for the assistant's responses.
 - **Image Recognition**: Using OpenAI Vision for image recognition. 
 - **Search Integration**: Optionally enable Bing, Google, and Perplexity searches to enhance responses with real-time information.
