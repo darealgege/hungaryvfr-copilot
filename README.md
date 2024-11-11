@@ -27,7 +27,9 @@ This project is a web-based counterpart to the HungaryVFR CoPilot Discord bot, s
 
 ## Demo
 [HungaryVFR CoPilot features](https://hungaryvfr.hu/images/10-HVFR-features_en.jpg)
+
 [HungaryVFR CoPilot document reading features](https://hungaryvfr.hu/images/10-HVFR-books_en.jpg)
+
 [HungaryVFR AI Support page - modular](https://hungaryvfr.hu/chat/index.php)
 
 ## Installation
