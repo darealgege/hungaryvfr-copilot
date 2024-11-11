@@ -181,4 +181,4 @@ Enable location sharing to allow the assistant to provide localized information 
 - Contributions are welcome! Please open an issue or submit a pull request.
 
 ### License
-- MIT License.
+- GPL-3.0 license.
