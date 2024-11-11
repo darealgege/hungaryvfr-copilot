@@ -11,8 +11,7 @@ The application is designed with modularity in mind, allowing certain functions 
 
 This project is a web-based counterpart to the HungaryVFR CoPilot Discord bot, sharing the same knowledge base but functioning independently. While it provides details on Discord commands, it does not execute them. 
 
-[![PayPal Donate Button](https://www.paypalobjects.com/hu_HU/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/ncp/payment/KUM7TUZW4CNPN)
-
+[![PayPal Donate Button](https://hungaryvfr.hu/images/paypal-donate-button-2.png)](https://www.paypal.com/ncp/payment/KUM7TUZW4CNPN)
 
 ## Features
 
