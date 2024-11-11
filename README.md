@@ -55,22 +55,18 @@ This project is a web-based counterpart to the HungaryVFR CoPilot Discord bot, s
    - OpenAI GPT API Key
      - Purpose: To generate AI responses.
      - Where to get it: [OpenAI API Keys](https://platform.openai.com/account/api-keys)
-     - Where to place it: In the ``get_config.php`` and ``process_image.php`` file.
+     - Where to place it: In the ``.env`` file.
      - Instructions:
-     - Open ``get_config.php``. Find the line:
+     - Open ``.env``. Find the line:
        ```
        $OPENAI_API_KEY = '';
-     - Place your OpenAI API key between the quotes.
-     - Open ``process_image.php``. Find the line:
-       ```
-       $apiKey = '';
-     - Place your OpenAI API key between the quotes.
+     - Place your OpenAI API key between the quotes..
    - Bing Search API Key
      - Purpose: To enable Bing search integration.
      - Where to get it: [Azure Portal - Bing Search APIs](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/)
-     - Where to place it: In the ``bing.php`` file.
+     - Where to place it: In the ``.env`` file.
      - Instructions:
-     - Open ``bing.php``. Find the line:
+     - Open ``.env``. Find the line:
        ```
        $BING_API_KEY = '';
      - Place your Bing Search API key between the quotes.
@@ -79,9 +75,9 @@ This project is a web-based counterpart to the HungaryVFR CoPilot Discord bot, s
      - Where to get it: 
        - API Key: [Google Cloud Console](https://console.cloud.google.com/apis/)
        - Search Engine ID: [Google Custom Search Engine](https://programmablesearchengine.google.com/controlpanel/all)
-     - Where to place them: In the ``google.php`` file.
+     - Where to place them: In the ``.env`` file.
      - Instructions:
-     - Open ``google.php``. Find the lines:
+     - Open ``.env``. Find the lines:
       ```
        $GOOGLE_API_KEY = '';
        $GOOGLE_SEARCH_ENGINE_ID = '';
@@ -90,9 +86,9 @@ This project is a web-based counterpart to the HungaryVFR CoPilot Discord bot, s
    - Perplexity API Key
      - Purpose: To enable Perplexity search integration.
      - Where to get it: [Perplexity AI](https://docs.perplexity.ai/guides/getting-started)
-     - Where to place it: In the ``perplexity.php`` file.
+     - Where to place it: In the ``.env`` file.
      - Instructions:
-     - Open ``perplexity.php``.
+     - Open ``.env``.
      - Find the line:
        ```
        $PERPLEXITY_API_KEY = '';
@@ -131,28 +127,28 @@ Enable location sharing to allow the assistant to provide localized information 
 
 ### API Keys and Configuration
 - OpenAI GPT-4 API Key
-  - File: ``config.php``
-  - Instructions: Open ``config.php``. Set your OpenAI API key:
+  - File: ``.env``
+  - Instructions: Open ``.env``. Set your OpenAI API key:
     ```
     $OPENAI_API_KEY = 'your-openai-api-key';
-  - File: ``process_image.php``
-  - Instructions: Open ``process_image.php``. Set your OpenAI API key:
+  - File: ``.env``
+  - Instructions: Open ``.env``. Set your OpenAI API key:
     ```
     $apiKey = 'your-openai-api-key';
 - Bing Search API Key
-  - File: ``bing.php``
-  - Instructions: Open ``bing.php``. Set your Bing API key:
+  - File: ``.env``
+  - Instructions: Open ``.env``. Set your Bing API key:
     ```
     $BING_API_KEY = 'your-bing-api-key';
 - Google Custom Search API Key and Search Engine ID
-  - File: ``google.php``
-  - Instructions: Open ``google.php``. Set your Google API key and Search Engine ID:
+  - File: ``.env``
+  - Instructions: Open ``.env``. Set your Google API key and Search Engine ID:
     ```
     $GOOGLE_API_KEY = 'your-google-api-key';
     $GOOGLE_SEARCH_ENGINE_ID = 'your-search-engine-id';
 - Perplexity API Key
-  - File: ``perplexity.php``
-  - Instructions: Open ``perplexity.php``. Set your Perplexity API key:
+  - File: ``.env``
+  - Instructions: Open ``.env``. Set your Perplexity API key:
     ```
     $PERPLEXITY_API_KEY = 'your-perplexity-api-key';
     ```
