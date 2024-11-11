@@ -102,10 +102,10 @@ This project is a web-based counterpart to the HungaryVFR CoPilot Discord bot, s
         BING_API_KEY=your-bing-api-key
         PERPLEXITY_API_KEY=your-perplexity-api-key
         ### Reserved for Google Cloud sync (see cloud_sync.php)
-        DRIVE_CLIENT_ID=
-        DRIVE_CLIENT_SECRET=
+        DRIVE_CLIENT_ID=your-google-drive-client-app-id
+        DRIVE_CLIENT_SECRET=your-google-drive-client-app-secret
         REDIRECT_URI=https://hungaryvfr.hu/chat/cloud_sync.php?action=oauth_callback
-        GOOGLE_DRIVE_API_KEY=
+        GOOGLE_DRIVE_API_KEY=your-google-drive-api-key
        ```
 3. Configure Server
    Ensure that your web server is configured to serve PHP files and that all necessary permissions are set.
