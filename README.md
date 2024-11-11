@@ -10,9 +10,9 @@ Designed for flexibility and adaptability, this chatbot can be tailored to vario
 The application is designed with modularity in mind, allowing certain functions to be easily integrated into existing websites. This means you can customize and embed the chatbot into your own site, tailoring it to specific needs. For example, if you have a website focused on a particular product, you can set up the chatbot to use your own pre-defined AI profile and knowledge base, providing users with specialized assistance related to your product.
 
 This project is a web-based counterpart to the HungaryVFR CoPilot Discord bot, sharing the same knowledge base but functioning independently. While it provides details on Discord commands, it does not execute them. 
-<div align="center">
+
 [![PayPal Donate Button](https://hungaryvfr.hu/images/paypal-donate-button-2.png)](https://www.paypal.com/ncp/payment/KUM7TUZW4CNPN)
-</div>
+
 ## Features
 
 - **AI-Powered Chatbot**: Engage in conversations with an AI assistant.
