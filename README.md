@@ -94,6 +94,19 @@ This project is a web-based counterpart to the HungaryVFR CoPilot Discord bot, s
        $PERPLEXITY_API_KEY = '';
        ```
      - Place your Perplexity API key between the quotes.
+   - ``.env`` example
+       ```
+        OPENAI_API_KEY=your-openai-api-key
+        GOOGLE_API_KEY=your-google-api-key
+        GOOGLE_SEARCH_ENGINE_ID=your-search-engine-id
+        BING_API_KEY=your-bing-api-key
+        PERPLEXITY_API_KEY=your-perplexity-api-key
+        ### Reserved for Google Cloud sync (see cloud_sync.php)
+        DRIVE_CLIENT_ID=
+        DRIVE_CLIENT_SECRET=
+        REDIRECT_URI=https://hungaryvfr.hu/chat/cloud_sync.php?action=oauth_callback
+        GOOGLE_DRIVE_API_KEY=
+       ```
 3. Configure Server
    Ensure that your web server is configured to serve PHP files and that all necessary permissions are set.
 4. Upload the application files to your web server.
