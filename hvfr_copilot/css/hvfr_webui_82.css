@@ -1,0 +1,1237 @@
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #28a745;
+            --background-color: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--background-color);
+            min-width: 364px;
+            min-height: 335px;
+            /* touch-action: pan-x pan-y; */
+            overscroll-behavior: none;
+            height: calc(95vh);
+        }
+
+        header img {
+            width: 100px;
+            height: auto;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+/*         #chat {
+            display: flex;
+            flex-direction: column;
+            max-width: auto;
+            height: calc(95vh);
+            margin: 0px;
+            padding: 0px;
+        } */
+
+        #header {
+            display: flex;
+            justify-content: space-between; /* Align left and right sections */
+            align-items: center; /* Vertically center the content */
+            flex-wrap: wrap;
+        }
+
+        /* Style the left side of the header */
+        .header-left {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            flex-direction: row;            
+        }
+
+        /* Optional: Add spacing between the logo and the text */
+        .header-left img {
+            margin-right: 10px;
+        }
+
+        /* Style the right side of the header */
+        .header-right {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row-reverse;
+        }
+
+        /* Optional: Add spacing between the icons */
+        .header-right .tour-icon,
+        .header-right .maininfo-icon {
+            margin-left: 10px;
+            cursor: pointer; /* Indicate that the icons are clickable */
+        }
+
+        #chat {
+            display: flex;
+            flex-direction: column;
+            width: 100%; /* Ensures full width */
+            max-width: 100%; /* Prevents exceeding the viewport */
+            height: calc(95vh);
+            max-height: calc(95vh);
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden; /* Prevents children from overflowing */
+        }        
+
+/*         main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            flex-shrink: 1;
+            margin-top: 10px;
+        } */
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin-top: 0px;
+            box-sizing: border-box;
+            overflow: hidden; /* Prevents children from overflowing */
+        }        
+
+/*         #chatContainer {            
+            width: 90%;           
+            max-width: 90%; 
+            margin: 0 auto; 
+            padding: 20px;
+            box-sizing: border-box;
+        }    */    
+            
+        #chatContainer {
+            width: 100%;
+            max-width: 100%; /* Ensures it doesn't exceed parent width */
+            margin: 0 0;
+            padding: 8px 8px; 
+            box-sizing: border-box;
+            overflow: hidden; /* Prevents children from overflowing */
+            min-height: 50px;
+        }      
+
+
+        #userInput {
+            width: 100%; /* Maintains existing width */
+            max-width: 100%; /* Prevents exceeding the parent container's width */
+            resize: vertical; /* Allows only vertical resizing */
+            min-height: 35px; /* Maintains existing minimum height */
+            max-height: 300px; /* Maintains existing maximum height */
+            overflow-y: auto; /* Enables vertical scrolling if content exceeds max-height */
+            padding: 8px;
+            box-sizing: border-box;
+            font-size: 14px;
+            line-height: 1.2;
+            border: 1px solid #ccc; 
+            border-radius: 4px;
+            transition: max-height 0.2s ease;
+            overscroll-behavior: contain;
+        }
+
+        /* Optional: Smooth transition for height changes */
+        textarea {
+            transition: height 0.2s ease;
+        }        
+
+        @media (max-width: 600px) {
+            #userInput {
+                width: 100%;
+                max-width: 100%;
+                resize: vertical;
+                padding: 12px;
+            }
+        }      
+        
+        fieldset {
+            display: block;
+            min-inline-size: min-content;
+            margin-inline: 2px;
+            margin-top: 5px;
+            border-width: 2px;
+            border-style: none;
+            border-color: threedface;
+            border-image: initial;
+            padding-block: 0.35em 0.625em;
+            padding-inline: 0.75em;
+            border-radius: 3px;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+            transition: transform 1s ease; /* Add transition for a smooth effect */        
+        }        
+
+        #messages {
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            min-height: 150px;
+            flex-basis: 150px;
+            flex-grow: 1;
+            flex-shrink: 1;
+            overflow-y: auto;
+            margin-bottom: 0px;
+            background-color: white;
+            overflow-x: hidden;
+            transition: height 0.1s ease;
+            overscroll-behavior: contain;
+            border-radius: 5px;
+        }
+
+        /* Webkit-alapú böngészők: Chrome, Safari, Edge */
+        #messages::-webkit-scrollbar {
+            width: 10px; /* Görgetősáv szélessége */
+        }
+
+        #messages::-webkit-scrollbar-track {
+            background: #f0f4f8; /* Görgetősáv háttérszíne */
+        }
+
+        #messages::-webkit-scrollbar-thumb {
+            background-color: #afafaf; /* Görgetősáv színe */
+            border-radius: 5px; /* Görgetősáv lekerekítése */
+            border: 2px solid #f0f4f8; /* Szegély a scrollbar körül */
+        }
+
+        #messages::-webkit-scrollbar-thumb:hover {
+            background-color: #aaaaaa; /* Hover szín */
+        }
+
+        /* Firefox esetén */
+        #messages {
+            scrollbar-width: thin; /* Görgetősáv szélessége */
+            scrollbar-color: #afafaf #f0f4f8; /* Görgetősáv színe és háttérszíne */
+        }        
+
+        .message {
+            position: relative;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 100%;
+            overflow: auto; /* Támogatja a mindkét irányú görgetést, ha szükséges */
+            scrollbar-width: thin; 
+            scrollbar-color: auto;           
+        }
+        
+        .message::-webkit-scrollbar {
+            width: 6px;  /* Vertikális görgetősáv szélessége */
+            height: 6px; /* Horizontális görgetősáv magassága */
+        }
+        
+        .message::-webkit-scrollbar-track {
+            background: #f0f4f8;
+            border-radius: 10px;
+        }
+        
+        .message::-webkit-scrollbar-thumb {
+            border-radius: 10px; 
+            border: 2px solid #f1f1f1;
+            background: rgba(0, 0, 0, 0.2); /* Görgetősáv színe */
+        }
+        
+        .message::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.4); /* Hover állapot */
+        }
+        
+        .message::-webkit-scrollbar-corner {
+            background: transparent; /* A sarokban lévő kis négyzet átlátszó marad */
+        } 
+
+        .assistant .content::-webkit-scrollbar {
+            width: 10px; /* Görgetősáv szélessége */
+        }
+
+        .assistant .content::-webkit-scrollbar-track {
+            background: #f0f4f8; /* Görgetősáv háttérszíne */
+        }
+
+        .assistant .content::-webkit-scrollbar-thumb {
+            background-color: #afafaf; /* Görgetősáv színe */
+            border-radius: 5px; /* Görgetősáv lekerekítése */
+            border: 2px solid #f0f4f8; /* Szegély a scrollbar körül */
+        }
+
+        .assistant .content::-webkit-scrollbar-thumb:hover {
+            background-color: #aaaaaa; /* Hover szín */
+        }
+
+        /* Firefox esetén */
+        .assistant .content {
+            scrollbar-width: thin; /* Görgetősáv szélessége */
+            scrollbar-color: #afafaf #f0f4f8; /* Görgetősáv színe és háttérszíne */
+        } 
+        .user {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+            
+        }
+
+        .assistant {
+            background-color: var(--secondary-color);
+            color: white;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+            
+        }
+
+        .timestamp {
+            font-size: 9px;
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+            text-align: right;
+        }
+
+        .speaker-icon {
+            display: flex;
+            left: 25px;
+            bottom: 5px;
+            cursor: pointer;
+        }
+
+        .copy-icon {
+            display: flex;
+            left: 5px;
+            bottom: 0px;
+            cursor: pointer;
+        }
+
+        .play-pause-stop-container {
+            display: flex;
+            align-items: left;
+            margin-left: 0px;
+            position: absolute;
+            bottom: -5px;
+            left: -5px;
+        }
+
+        .play-pause-button,
+        .stop-button {
+            font-size: 18px;
+            margin: 5px;
+            cursor: pointer;
+            padding: 0px;
+        }
+
+        .play-pause-button:hover,
+        .stop-button:hover {
+            opacity: 0.7;
+        }
+
+
+        .assistant .content {
+            /* white-space: pre-wrap; */
+            word-wrap: break-word;
+            overflow-x: auto;
+            background-color: var(--secondary-color);
+            padding: 2px;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            line-height: 1.2;
+            margin: 0;            
+        }
+
+        .message {
+            margin: 5px;
+            padding: 5px 15px;
+            border-radius: 10px;
+            max-width: 100%;
+            overflow-x: auto;
+            line-height: 1.2;
+        }
+
+        .message p {
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .message h {
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .message ul,
+        .message ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .message li {
+            margin-bottom: 0.5em;
+        }
+
+        .assistant .content h1,
+        .assistant .content h2,
+        .assistant .content h3,
+        .assistant .content h4,
+        .assistant .content h5,
+        .assistant .content h6 {
+            margin-top: 1px;
+            margin-bottom: 1px;
+            font-weight: bold;
+            color: var(--heading-color, white);
+            line-height: 1.2;
+        }
+
+        .assistant .content h1 {
+            font-size: 1.4em;
+        }
+
+        .assistant .content h2 {
+            font-size: 1.4em;
+        }
+
+        .assistant .content h3 {
+            font-size: 1.2em;
+        }
+
+        .assistant .content h4 {
+            font-size: 1.2em;
+        }
+
+        .assistant .content h5 {
+            font-size: 1.0em;
+        }
+
+        .assistant .content h6 {
+            font-size: 0.8em;
+        }
+
+        .assistant .content ul,
+        .assistant .content ol {
+            margin: 10px;
+            padding-left: 10px;
+            /* list-style-position: inside; */
+        }
+
+        .assistant .content li {
+            margin: 0;
+            padding: 0;
+            line-height: 1.2;
+        }
+
+        .assistant .content p {
+            margin: 0px 0px 15px 0px;
+            padding: 0;
+            line-height: 1.2;
+        }
+
+        .user .content {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-x: auto;
+            background-color: var(--primary-color);
+            padding: 2px;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            line-height: 1.2;
+            margin: 0px;
+            scrollbar-width: thin; /* Görgetősáv szélessége */
+            scrollbar-color: #afafaf #f0f4f8; /* Görgetősáv színe és háttérszíne */            
+        }
+
+        .user .content h1,
+        .user .content h2,
+        .user .content h3,
+        .user .content h4,
+        .user .content h5,
+        .user .content h6 {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            font-weight: bold;
+            color: var(--heading-color, white);
+            line-height: 1.2;
+        }
+
+        .user .content h1 {
+            font-size: 1.8em;
+        }
+
+        .user .content h2 {
+            font-size: 1.6em;
+        }
+
+        .user .content h3 {
+            font-size: 1.4em;
+        }
+
+        .user .content h4 {
+            font-size: 1.2em;
+        }
+
+        .user .content h5 {
+            font-size: 1.0em;
+        }
+
+        .user .content h6 {
+            font-size: 0.8em;
+        }
+
+        .user .content ul,
+        .user .content ol {
+            margin: 0;
+            padding-left: 20px;
+            list-style-position: inside;
+        }
+
+        .user .content li {
+            margin: 0;
+            padding: 0;
+            line-height: 1.2;
+        }
+
+        .user .content p {
+            margin: 0;
+            padding: 0;
+            line-height: 1.2;
+        }
+
+        .perplexity {
+            background-color: #f0f0f0;
+            color: #333;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        }        
+
+        .perplexity .content {
+            white-space: normal;
+            word-wrap: break-word;
+            overflow-x: auto;
+            background-color: #f0f0f0; /* Válassz megfelelő háttérszínt */
+            padding: 8px;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            line-height: 1.2;
+            margin: 0px;
+            color: #333; /* Szöveg színe */
+        }
+        
+        .perplexity .content h1,
+        .perplexity .content h2,
+        .perplexity .content h3,
+        .perplexity .content h4,
+        .perplexity .content h5,
+        .perplexity .content h6 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+            line-height: 1.2;
+        }
+        
+        .perplexity .content ul,
+        .perplexity .content ol {
+            margin: 8px;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            /* list-style-position: inside; */
+        }
+        
+        .perplexity .content li {
+            margin: 0;
+            padding: 0;
+            line-height: 1.2;
+        }
+        
+        .perplexity .content p {
+            margin: 0;
+            padding: 0;
+            line-height: 1.2;
+        }        
+
+        .system {
+            color: gray;
+            padding: 1px;
+            border-radius: 0px;
+            font-family: monospace;
+            font-size: 12px;
+            line-height: 1.0;
+            margin: 0;
+        }
+
+        .system .bing-keywords {
+            font-size: 9px;
+            padding-left: 0px;
+            color: grey;
+        }
+
+        .system .google-keywords {
+            font-size: 9px;
+            padding-left: 0px;
+            color: grey;
+        }        
+
+        textarea,        
+        select {
+            width: 100%;
+            margin-bottom: 5px;
+            padding: 5px;
+
+        }
+
+        
+        button  {            
+            margin-bottom: 5px;
+            padding: 5px;
+
+        }
+
+        input {
+            margin-bottom: 5px;
+            padding: 5px;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+        }
+
+        #contextMenu li {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        #contextMenu li:hover {
+            background-color: #f0f0f0;
+        }
+
+        #buttonContainer {
+            display: flex;
+            flex-direction: row;
+            flex-shrink: 1;
+            width: 97%;
+            gap: 5px;
+            margin: 0px 0;
+            user-select: none;
+        }
+
+        #buttonContainerSmall {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .buttonGroupLeft {
+            display: flex;
+            gap: 5px;
+        }
+
+        .buttonGroupRight {
+            display: flex;
+            gap: 5px;
+        }
+
+        #buttonContainerSmall>.buttonGroupLeft {
+            margin-right: auto;
+        }
+
+        #buttonContainerSmall>.buttonGroupRight {
+            margin-left: auto;
+        }
+
+        #buttonGroupSmall {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            width: 35%;
+            gap: 5px;
+        }
+
+        #setAndClearBtn,
+        #setSessionBtn {
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 12px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            width: 80px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px;
+            /* transition: transform 0.1s ease; */ /* Add transition for a smooth effect */
+        }
+
+        #loadChatBtn,
+        #saveChatBtn,
+        #cloudSyncBtn {
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 12px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            width: 40px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px;
+            /* transition: transform 0.1s ease; */ /* Add transition for a smooth effect */
+        }
+
+        #sendBtn.enabled:active, 
+        #setAndClearBtn:active,
+        #setSessionBtn:active,
+        #loadChatBtn:active,
+        #saveChatBtn:active,
+        #cloudSyncBtn:active,
+        #removeFilesBtn:active,
+        #loadTextFilesBtn:active,
+        #captureImageBtn:active,
+        #microphoneBtn:active,
+        #addTabBtn:active,
+        #tabList li:active {
+            transform: scale(0.95); /* Scale down when the button is pressed */
+        }  
+
+
+        #setSessionBtn:disabled,
+        #saveChatBtn:disabled {
+            background-color: grey;
+            color: #d3d3d3;
+            cursor: not-allowed;
+            transform: scale(1.00); /* Scale down when the button is pressed */
+        }
+
+        #loadChatBtn {
+            background-color: #28a745;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px;
+            /* transition: transform 0.1s ease; */ /* Add transition for a smooth effect */
+        }
+
+        #saveChatBtn {
+            background-color: #28a745;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px;
+            /* transition: transform 0.1s ease; */ /* Add transition for a smooth effect */
+        }
+
+        #sendBtnContainer {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            margin-top: 0px;            
+        }
+
+        #sendBtn {
+            border-radius: 8px;
+            padding: 10px;
+            border: none;
+            cursor: not-allowed;
+            background-color: grey;
+            color: #d3d3d3;
+            width: auto;
+            flex-grow: 1;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px;
+           /*  transition: transform 0.1s ease; */ /* Add transition for a smooth effect */
+        }
+        
+        #microphoneBtn {
+            display: none;
+            border-radius: 8px;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            background-color: #28a745;
+            color: #d3d3d3;
+            width: auto;
+            flex-grow: 1;
+            margin-right: 25px;
+            margin-left: 25px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px;
+            /* transition: transform 0.1s ease; */ /* Add transition for a smooth effect */
+        }
+
+        #sendBtn.enabled {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+    
+
+        #removeFilesBtn,
+        #loadTextFilesBtn {
+            border-radius: 8px;
+            padding: 0px;
+            border: none;
+            cursor: pointer;
+            width: 40px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px;
+           /*  transition: transform 0.1s ease; */ /* Add transition for a smooth effect */
+        }
+
+        #captureImageBtn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0px;
+            cursor: pointer;
+            width: 40px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px;
+            /* transition: transform 0.1s ease; */ /* Add transition for a smooth effect */
+          }
+          
+          #captureImageBtn:disabled {
+            background-color: grey;
+            color: #d3d3d3;
+            cursor: not-allowed;
+            transform: scale(1.00); /* Scale down when the button is pressed */
+          }   
+
+        #removeFilesBtn {
+            background-color: #007bff;
+            color: white;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px;
+            /* transition: transform 0.1s ease; */ /* Add transition for a smooth effect */
+        }
+
+        #removeFilesBtn:disabled {
+            background-color: grey;
+            color: #d3d3d3;
+            cursor: not-allowed;
+            transform: scale(1.00); /* Scale down when the button is pressed */
+        }
+
+        #loadTextFilesBtn {
+            background-color: #007bff;
+            color: white;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px;
+            /* transition: transform 0.1s ease; */ /* Add transition for a smooth effect */
+        }
+
+
+        #loadTextFilesBtn:disabled {
+            background-color: grey;
+            color: #d3d3d3;
+            cursor: not-allowed;
+            transform: scale(1.00); /* Scale down when the button is pressed */
+        }
+
+
+        #customInitialPrompt::placeholder {
+            font-size: 12px;
+        }
+
+        #customInitialPrompt {
+            width: 98%;
+        }
+
+        #aiConfig {
+            border: 0px solid var(--border-color);
+            padding: 0px;
+            background-color: var(--background-color);
+            border-radius: 5px;
+            margin-bottom: 5px;
+            user-select: none;
+            width: 100%;                
+        }
+
+        #aiConfig legend {
+            cursor: pointer;
+        }
+
+        .disabled-cursor {
+            cursor: not-allowed !important;
+        }
+
+        .avatar {
+            margin-bottom: 2px;
+        }
+
+        #tabs {
+            display: flex;
+            align-items: left;
+            justify-content: space-between;
+            margin-bottom: 0px;
+            overflow-x: auto;
+            white-space: nowrap;
+            /* min-height: 32px; */
+            /* min-height: 55px; */
+            min-height: auto;
+            max-height: 60px;
+            scrollbar-width: thin;
+        }
+
+        #tabList {
+            display: flex;
+           /*  align-items: center; */
+            flex-direction: row;
+            list-style-type: none;
+            font-size: 12px;
+            padding: 5px 5px;
+            margin: 0;
+            width: auto;
+        }
+
+        #tabList li {
+            margin-right: 5px;
+            width: 70px;
+            position: relative;
+            cursor: grab;
+            user-select: none;
+            border-radius: 5px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px;
+        }
+
+        #tabList li:active {
+            cursor: grabbing;
+        }
+
+        #tabList li a {
+            display: block;
+            padding: 5px 5px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            position: relative;
+            width: 70px;
+            text-align: left;
+            box-sizing: border-box;
+        }
+
+        #tabList li.active a {
+            background-color: var(--secondary-color);
+            width: 70px;
+        }
+
+        .close-tab {
+            position: absolute;
+            right: 3px;
+            top: 11px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: red;
+            text-align: right;
+            padding-left: 5px;
+        }
+
+        .close-tab:hover {
+            color: darkred;
+        }
+
+        #addTabBtn {
+            position: relative;
+            padding: 5px 5px 5px 5px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: auto;
+            margin-right: 5px;
+            height: 30px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 0px;
+            /* transition: transform 0.1s ease; */ /* Add transition for a smooth effect */
+        }
+
+        #addTabBtn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        #knowledgeBase {
+            width: 100%;
+        }
+
+        #initialPrompt {
+            width: 100%;
+        }
+
+        .help-text {
+            display: none; /* Alapértelmezés szerint rejtve */
+            margin-top: 5px;
+            padding: 5px 15px;
+            font-size: 0.95em;
+            color: #333;
+            background-color: #f0f4f8;
+            border-left: 4px solid #007BFF; /* Kiemelő szín a bal oldalon */
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+            max-height: 250px;
+            overflow-x: hidden;
+            font-size: 12px;
+            overscroll-behavior: contain;
+        }
+
+        .help-text.show {
+            display: block;
+            max-height: 250px; /* Kisebb maximális magasság a help-text-hez */
+            opacity: 1;
+        }
+
+        /* Webkit-alapú böngészők: Chrome, Safari, Edge */
+        .mainhelp-text::-webkit-scrollbar {
+            width: 10px; /* Szélesség beállítása */
+        }
+
+        .mainhelp-text::-webkit-scrollbar-track {
+            background: #f0f4f8; /* Háttérszín a scrollbar track-nél */
+        }
+
+        .mainhelp-text::-webkit-scrollbar-thumb {
+            background-color: #007BFF; /* Görgetősáv színe */
+            border-radius: 5px; /* Lekerekítés */
+            border: 2px solid #f0f4f8; /* Szegély a scrollbar körül */
+        }
+
+        .mainhelp-text::-webkit-scrollbar-thumb:hover {
+            background-color: #0056b3; /* Hover szín a scrollbar számára */
+        }
+
+                /* Firefox */
+/*         .mainhelp-text {
+            scrollbar-width: thin;
+
+        }         */
+
+        .header-text {
+            user-select: none;
+            font-size: 18px;
+        }
+        .mainhelp-text {
+            display: none; /* Alapértelmezés szerint rejtve */
+            margin-top: 5px;
+            padding: 5px 15px;
+            font-size: 0.95em;
+            color: #333;
+            background-color: #f0f4f8;
+            border-left: 4px solid #007BFF; /* Kiemelő szín a bal oldalon */
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+            max-height: 250px;
+            max-width: 99%;
+            overflow-x: hidden;
+            font-size: 12px;
+            user-select: none;
+            overscroll-behavior: contain;
+        }
+        
+        .help-text::before {
+            /* content: "ℹ️"; */
+            position: absolute;
+            top: -20px;
+            left: -4px;
+            background-color: #f0f4f8;
+            border-radius: 50%;
+            padding: 5px;
+            font-size: 1.2em;
+        }
+
+        .mainhelp-text::before {
+            /* content: "ℹ️"; */
+            position: absolute;
+            top: -20px;
+            left: -4px;
+            background-color: #f0f4f8;
+            border-radius: 50%;
+            padding: 5px;
+            font-size: 1.2em;
+        }
+        
+        .info-icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            line-height: 16px;
+            border-radius: 50%;
+            background-color: #007BFF; /* Kék háttérszín */
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            font-size: 0.8em;
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;            
+            transition: background-color 0.3s ease;  
+            margin-bottom: 5px;     
+            user-select: none;     
+        }
+
+        .maininfo-icon { 
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            line-height: 18px;
+            border-radius: 50%;
+            background-color: #007BFF; /* Kék háttérszín */
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            font-size: 0.7em;
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+            /* font-weight: bold; */
+            transition: background-color 0.3s ease;  
+            user-select: none;   
+            margin-left: 10px;       
+        }
+
+        .tour-icon {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            line-height: 18px;
+            border-radius: 50%;
+            background-color: #007BFF; /* Kék háttérszín */
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            font-size: 0.6em;
+            /* font-weight: bold; */
+            transition: background-color 0.3s ease;  
+            user-select: none;  
+            margin-left: 5px;        
+        }
+        
+        .info-icon:hover {
+            color: #007BFF;
+            background-color: #0056b3; /* Sötétebb kék hover szín */
+        }
+
+        .tour-icon:hover {
+            color: #007BFF;
+            background-color: #0056b3; /* Sötétebb kék hover szín */
+        }
+
+        .maininfo-icon:hover {
+            color: #007BFF;
+            background-color: #0056b3; /* Sötétebb kék hover szín */
+        }
+     
+        .switch-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .switch {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 20px;
+            transition: 0.4s;
+        }
+
+        .slider.round {
+            border-radius: 20px;
+        }
+
+        .slider::before {
+            content: "";
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            left: 1px;
+            bottom: 1px;
+            background-color: white;
+            border-radius: 50%;
+            transition: 0.4s;
+        }
+
+        .switch:checked+.slider {
+            background-color: #2196F3;
+        }
+
+        .switch:checked+.slider::before {
+            transform: translateX(20px);
+        }
+
+        #buttonContainerSmall {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .buttonGroupLeft,
+        .buttonGroupRight {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        #locationToggleContainer {
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        #bingToggleContainer {
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        .icons-container {            
+            margin-top: 10px;
+        }
+
+        
+
+        .switch-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    }
+
+    .switch {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: relative;
+        display: inline-block;
+        width: 25px; 
+        height: 15px; 
+        background-color: #ccc;
+        border-radius: 15px;
+        transition: 0.4s;
+    }
+
+    .slider::before {
+        content: "";
+        position: absolute;
+        width: 13px;
+        height: 13px;
+        left: 1px;
+        bottom: 1px;
+        background-color: white;
+        border-radius: 50%;
+        transition: 0.4s;
+    }
+
+    .switch:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    .switch:checked + .slider::before {
+        transform: translateX(10px); 
+    }
+
