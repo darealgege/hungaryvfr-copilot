@@ -18,19 +18,40 @@ function loadEnv($path) {
 
 // Új kód a build szám kinyeréséhez a legnagyobb build szám alapján
 $js_files = glob(__DIR__ . '/ui_*.js');
-$build_number = '';
-$js_filename = '';
-$max_build_number = -1;
+$css_files = glob(__DIR__ . '/css/hvfr_webui_*.css');
 
+$js_build_number = '';
+$css_build_number = '';
+$js_filename = '';
+$css_filename = '';
+$max_js_build_number = -1;
+$max_css_build_number = -1;
+
+// JavaScript build szám keresése
 if (count($js_files) > 0) {
     foreach ($js_files as $file) {
         $filename = basename($file);
         if (preg_match('/ui_(\d+)\.js$/', $filename, $matches)) {
             $current_build_number = (int)$matches[1];
-            if ($current_build_number > $max_build_number) {
-                $max_build_number = $current_build_number;
+            if ($current_build_number > $max_js_build_number) {
+                $max_js_build_number = $current_build_number;
                 $js_filename = $filename;
-                $build_number = $current_build_number;
+                $js_build_number = $current_build_number;
+            }
+        }
+    }
+}
+
+// CSS build szám keresése
+if (count($css_files) > 0) {
+    foreach ($css_files as $file) {
+        $filename = basename($file);
+        if (preg_match('/hvfr_webui_(\d+)\.css$/', $filename, $matches)) {
+            $current_build_number = (int)$matches[1];
+            if ($current_build_number > $max_css_build_number) {
+                $max_css_build_number = $current_build_number;
+                $css_filename = $filename;
+                $css_build_number = $current_build_number;
             }
         }
     }
@@ -58,14 +79,19 @@ loadEnv(__DIR__ . '/.env');
         content="flight, simulator, msfs, fs2020, hungary, vfr, hungaryvfr, hvfr, microsoft, simulator, budapest, magyarország, magyarorszag, flightsimulator, flight simulator, lhdk, lhbs, lhtl, lhud, lhbp, ferihegy, liszt ferenc, international, airport, airfield">
     <title>HungaryVFR CoPilot</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="css/hvfr_webui_76.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/hvfr_webui_78.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/<?php echo htmlspecialchars($css_filename); ?>">
+
+    
+
     <!-- In your head section -->
     <!-- In your head section -->
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/driver.js@0.9.8/dist/driver.min.css">
 
     <script src="https://unpkg.com/driver.js@0.9.8/dist/driver.min.js"></script>
-
-
+    <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
     <script>
         const api_client_id = "<?php echo $_ENV['DRIVE_CLIENT_ID']; ?>";
         const api_redirect_uri = "<?php echo $_ENV['REDIRECT_URI']; ?>";
@@ -88,12 +114,21 @@ loadEnv(__DIR__ . '/.env');
             <span class="tour-icon" onclick="startTour()"><b>?</b></span>            
             <div id="mainHelp" class="mainhelp-text">
                                 <!-- <b>ℹ️ About HungaryVFR CoPilot:</b> -->
-                                <b>ℹ️ About HungaryVFR CoPilot<?php if ($build_number != '') echo " (build $build_number)"; ?>:</b>
+                                <b>ℹ️ About HungaryVFR CoPilot
+                                <?php
+                                if ($js_build_number != '' || $css_build_number != '') {
+                                    echo " (build";
+                                    if ($js_build_number != '') echo " JS $js_build_number";
+                                    if ($css_build_number != '') echo " | CSS $css_build_number";
+                                    echo ")";
+                                }
+                                ?>:</b>
                                 <br><br>The HungaryVFR CoPilot WebUI Chat Application is a web-based chatbot powered by the OpenAI API, enabling users to converse on various topics. It supports custom knowledge bases to enhance AI responses with specialized information and includes examples to help you get started. Additionally, it can utilize Perplexity AI, Bing and Google APIs, and your location to generate up-to-date responses. 
                                 <br><br>Flexible and adaptable, this chatbot suits various use cases-from casual conversations to domain-specific assistance. Whether for general inquiries, educational purposes, or integrating your own data, it provides a robust platform for interactive AI experiences. 
                                 <br><br>Designed with modularity, the application allows easy integration into existing websites. You can customize and embed the chatbot into your site, tailoring it to specific needs. For example, on a product-focused website, you can configure it with your own AI profile and knowledge base to offer specialized assistance.
                                 <br>
                                 <br>Client source is available at <a href="https://github.com/darealgege/hungaryvfr-copilot" target="_blank">GitHub</a>.
+                                <br>Cookie and GDPR policy is available at <a href="https://www.hungaryvfr.hu/cookie_policy.php" target="_blank">HungaryVFR website</a>.
                                 <br><br>
                                 <b>ℹ️ How to use the Client:</b><br>
                                 <br>📖 Select Knowledge Base - Choose a predefined knowledge base to tailor the AI's expertise, e.g., <b>💽 hvfr.dat</b> for HungaryVFR content, <b>💽 empty.dat</b> for an empty knowledge base.
@@ -120,7 +155,7 @@ loadEnv(__DIR__ . '/.env');
                                 <br>🔒 Lock / 🔓 Unlock, ✍️ Rename Tab: Long press or right-click a tab to rename or lock/unlock it (to prevent closure).
                                 <br>
                                 <br>📎 Attachments handling:
-                                <br>➕ button - Attach text files for the AI to read and incorporate into the chat.
+                                <br>➕ button - Attach files (pdf, epub, docx, xlsx, pptx, odt, ods, odp, etc) for the AI to read and incorporate into the chat.
                                 <br>➖ button - Remove all attached files from the current chat session.
                                 <br>📷 button - Attach image files or take a photo to share with the AI.
                                 <br>
@@ -266,7 +301,7 @@ loadEnv(__DIR__ . '/.env');
 
             <div id="buttonContainer">
                 <div id="buttonGroupSmall">
-                    <button id="loadTextFilesBtn" title="Load text files" aria-label="Load text files">➕</button>
+                    <button id="loadTextFilesBtn" title="Attach files" aria-label="Attach files">➕</button>
                     <button id="removeFilesBtn" title="Remove files" aria-label="Remove files">➖</button>
                     <button id="captureImageBtn" title="Load image files" aria-label="Load image files">📷</button>
                 </div>
@@ -290,6 +325,7 @@ loadEnv(__DIR__ . '/.env');
     <script src="https://unpkg.com/heic2any"></script>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
     <script src="https://unpkg.com/epubjs/dist/epub.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
             
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script>
@@ -485,7 +521,7 @@ loadEnv(__DIR__ . '/.env');
         element: '#buttonContainer',
         popover: {
           title: 'Attachments and Input Controls',
-          description: `➕ button - Attach text files (pdf, epub, docx, rtf, xml, json, source files, plain text, etc.) for the AI to read and incorporate into the chat.<br>➖ button - Remove all attached files from the current chat session.<br>📷 button - Attach image files or take a photo to share with the AI.<br><br>🎤 button - Hold down the 🎤 button to speak to the AI using speech recognition. The AI will automatically read out its responses when using speech input.<br>💬 Send - Send your message.`,
+          description: `➕ button - Attach files (pdf, epub, docx, xlsx, pptx, odt, ods, odp, rtf, xml, json, source files, plain text, etc.) for the AI to read and incorporate into the chat.<br>➖ button - Remove all attached files from the current chat session.<br>📷 button - Attach image files or take a photo to share with the AI.<br><br>🎤 button - Hold down the 🎤 button to speak to the AI using speech recognition. The AI will automatically read out its responses when using speech input.<br>💬 Send - Send your message.`,
           position: 'top',
         },
       },     
