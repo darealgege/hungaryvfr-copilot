@@ -61,6 +61,10 @@ loadEnv(__DIR__ . '/.env');
 
 ?>
 
+<script>
+    const cssFilename = "<?php echo $css_filename; ?>"; // PHP változó átadása JS-nek
+</script>
+
 <!DOCTYPE html>
 <html lang="hu">
 
@@ -92,6 +96,24 @@ loadEnv(__DIR__ . '/.env');
     <script type="text/javascript" async
     src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" defer></script>
+ -->
+ 
+ <!-- PhotoSwipe CSS -->
+<link rel="stylesheet" href="https://unpkg.com/photoswipe@5.3.3/dist/photoswipe.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.3/photoswipe.min.css" integrity="sha512-TdCx5ObKpq3+lwUdiXFgFLhqwTB98YsdaQWSJrwkOz084qaeO86+NMYfU/pnpPo1pDVah0a7yvFmbcvI8ZiGAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- PhotoSwipe JS -->
+<!-- <script src="https://unpkg.com/photoswipe@5.3.3/dist/photoswipe.min.js"></script> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.3/photoswipe.min.css" integrity="sha512-TdCx5ObKpq3+lwUdiXFgFLhqwTB98YsdaQWSJrwkOz084qaeO86+NMYfU/pnpPo1pDVah0a7yvFmbcvI8ZiGAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.3/umd/photoswipe-lightbox.umd.min.js" integrity="sha512-H+rBPghFmoNYIdRY8DTL5A8EmYclHETvb5FlPU4cu3y3HLS/Jw4qtCkWivgH2mzqx6WBXRnZfugWpl1YK19gMw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://unpkg.com/photoswipe@5.3.3/dist/photoswipe-lightbox.esm.min.js" type="module"></script>
+
+
+
+
     <script>
         const api_client_id = "<?php echo $_ENV['DRIVE_CLIENT_ID']; ?>";
         const api_redirect_uri = "<?php echo $_ENV['REDIRECT_URI']; ?>";
