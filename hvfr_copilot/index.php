@@ -155,7 +155,7 @@ loadEnv(__DIR__ . '/.env');
                                 <b>ℹ️ How to use the Client:</b><br>
                                 <br>📖 Select Knowledge Base - Choose a predefined knowledge base to tailor the AI's expertise, e.g., <b>💽 hvfr.dat</b> for HungaryVFR content, <b>💽 empty.dat</b> for an empty knowledge base.
                                 <br>🤖 Select AI Profile - Choose a predefined profile to set the AI's behavior and responses.
-                                <br>👥 Custom Initial Prompt - Enter a custom prompt to override the selected AI model with personalized instructions.
+                                <br>👥 Additional Prompt - Provide an additional prompt to complement the existing system role with personalized instructions.
                                 <br>🔊 Select AI Voice - Choose from available speech engines to customize the AI's voice. This option appears only if TTS voices are available.
                                 <br>
                                 <br>📕 Session Management:
@@ -231,7 +231,7 @@ loadEnv(__DIR__ . '/.env');
                                 ℹ️ About AI Profiles:<br>
                                 <br>
                                 An AI profile defines the AI's behavior, personality, and response style, shaping how it interacts with users in specific scenarios.<br>
-                                Select an AI profile or enter a custom initial prompt to set the AI's behavior.<br>                                
+                                Select an AI profile and optionally provide an additional prompt to further customize the AI's behavior.<br>                                
                                 <!-- <b>🤖 HungaryVFR CoPilot</b> is loaded by default. -->
                                 <!-- <br> -->
                                 If you're not sure about the role of an AI Profile, simply ask it what it can do to help. 
@@ -240,7 +240,7 @@ loadEnv(__DIR__ . '/.env');
                             </div> 
                         <select id="initialPrompt"></select>
                         <input type="text" id="customInitialPrompt"
-                            placeholder="👥 Custom initial prompt (will override selected AI profile)">
+                            placeholder="👥 Additional Prompt - Personalize the selected AI Profile">
                         </div>   
 
                             <div id="voiceSelector" style="display: none;">
@@ -502,7 +502,7 @@ loadEnv(__DIR__ . '/.env');
         element: '#aiSettings',
         popover: {
           title: 'AI Configuration',
-          description: `📖 Select Knowledge Base - Choose a predefined knowledge base to tailor the AI's expertise, e.g., <b>💽 hvfr.dat</b> for HungaryVFR content, <b>💽 empty.dat</b> for an empty knowledge base.<br><br>🤖 Select AI Profile - Choose a predefined profile to set the AI's behavior and responses.<br><br>👥 Custom Initial Prompt - Enter a custom prompt to override the selected AI model with personalized instructions.`,
+          description: `📖 Select Knowledge Base - Choose a predefined knowledge base to tailor the AI's expertise, e.g., <b>💽 hvfr.dat</b> for HungaryVFR content, <b>💽 empty.dat</b> for an empty knowledge base.<br><br>🤖 Select AI Profile - Choose a predefined profile to set the AI's behavior and responses.<br><br>👥 Additional Prompt - Provide an additional prompt to complement the existing system role with personalized instructions.`,
           position: 'bottom',
         },
       },
